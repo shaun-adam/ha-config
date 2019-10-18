@@ -1,0 +1,26 @@
+{
+  "arduino_version": "espressif8266@1.8.0", 
+  "address": "10.0.1.150", 
+  "storage_version": 1, 
+  "esphome_version": "1.13.6", 
+  "build_path": "/config/esphome/garagedoor", 
+  "name": "garagedoor", 
+  "loaded_integrations": [
+    "api", 
+    "dht", 
+    "esphome", 
+    "gpio", 
+    "logger", 
+    "network", 
+    "ota", 
+    "sensor", 
+    "switch", 
+    "template", 
+    "ultrasonic", 
+    "wifi"
+  ], 
+  "firmware_bin_path": "/data/garagedoor/.pioenvs/garagedoor/firmware.bin", 
+  "board": "d1_mini", 
+  "esp_platform": "ESP8266", 
+  "src_version": 1
+}
