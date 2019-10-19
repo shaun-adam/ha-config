@@ -1,0 +1,50 @@
+esphome:
+  name: garagedoor
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "SJJ"
+  password: "Charlie13"
+  manual_ip:
+    static_ip: 10.0.1.150
+    gateway: 10.0.1.1
+    subnet: 255.255.255.0
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+sensor:
+  - platform: dht
+    pin: D1
+    temperature:
+      name: "Garage Temperature"
+    humidity:
+      name: "Garage Humidity"
+    update_interval: 5s
+    model: AM2302
+    
+  - platform: ultrasonic
+    trigger_pin: D3
+    echo_pin: D2
+    name: "Garage Door Sensor"
+    update_interval: 5s
+    timeout: 4m
+    
+switch:
+  - platform: gpio
+    inverted: true
+    pin: D4
+    id: relay
+  - platform: template
+    name: "Garage Remote"
+    #icon: "mdi:gate"
+    turn_on_action:
+    - switch.turn_on: relay
+    - delay: 500ms
+    - switch.turn_off: relay
